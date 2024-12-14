@@ -1,0 +1,31 @@
+services:
+  fortune-api:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - ./service_account.json:/app/service_account.json
+      - ./data:/app/data
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - HOST=0.0.0.0
+      - FLASK_DEBUG=1
+      - CORS_HEADERS=Content-Type
+      - CORS_ORIGINS=*
+    command: flask run --host=0.0.0.0 --port=5000
+    networks:
+      - restaurant-search-network
+
+  fortune-db:
+    image: alpine:latest
+    volumes:
+      - ./data:/data
+    command: sh -c "apk add --no-cache sqlite && while true; do sqlite3 /data/restaurants.db; sleep 1; done"
+    networks:
+      - restaurant-search-network
+
+networks:
+  restaurant-search-network:
+    driver: bridge

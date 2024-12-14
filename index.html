@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レストラン検索</title>
+</head>
+<body>
+    <h1>レストランの検索結果</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>エリア</th>
+                <th>店名</th>
+                <th>評価</th>
+                <th>Google評価</th>
+                <th>予算</th>
+                <th>食べログリンク</th>
+                <th>Google評価スコア</th>
+                <th>Googleレビュー件数</th>
+                <th>実行フラグ</th>
+                <th>Googleリンク</th>
+                <th>営業時間</th>
+                <th>コース</th>
+                <th>メニュー</th>
+                <th>お店トップ画像</th>
+                <th>説明文</th>
+                <th>経度</th>
+                <th>緯度</th>
+                <th>最寄駅</th>
+                <th>道順</th>
+                <th>人数</th>
+                <th>カテゴリ</th>
+                <th>予算下限</th>
+                <th>予算上限</th>
+                <th>個室の有無</th>
+                <th>飲み放題有無</th>
+                <th>詳細画像1</th>
+                <th>詳細画像2</th>
+                <th>詳細画像3</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in df %}
+                <tr>
+                    <td>{{ record['area'] or 'データなし' }}</td>
+                    <td>{{ record['name'] or 'データなし' }}</td>
+                    <td>{{ record['rating'] or 'データなし' }}</td>
+                    <td>{{ record['google_rating'] or 'データなし' }}</td>
+                    <td>{{ record['budget'] or 'データなし' }}</td>
+                    <td>{{ record['tobe_log_link'] or 'データなし' }}</td>
+                    <td>{{ record['google_rating_score'] or 'データなし' }}</td>
+                    <td>{{ record['google_review_count'] or 'データなし' }}</td>
+                    <td>{{ record['execution_flag'] or 'データなし' }}</td>
+                    <td>{{ record['google_link'] or 'データなし' }}</td>
+                    <td>{{ record['opening_hours'] or 'データなし' }}</td>
+                    <td>{{ record['course'] or 'データなし' }}</td>
+                    <td>{{ record['menu'] or 'データなし' }}</td>
+                    <td>{{ record['store_top_image'] or 'データなし' }}</td>
+                    <td>{{ record['description'] or 'データなし' }}</td>
+                    <td>{{ record['longitude'] or 'データなし' }}</td>
+                    <td>{{ record['latitude'] or 'データなし' }}</td>
+                    <td>{{ record['nearest_station'] or 'データなし' }}</td>
+                    <td>{{ record['directions'] or 'データなし' }}</td>
+                    <td>{{ record['capacity'] or 'データなし' }}</td>
+                    <td>{{ record['category'] or 'データなし' }}</td>
+                    <td>{{ record['budget_min'] or 'データなし' }}</td>
+                    <td>{{ record['budget_max'] or 'データなし' }}</td>
+                    <td>{{ record['has_private_room'] or 'データなし' }}</td>
+                    <td>{{ record['has_drink_all_included'] or 'データなし' }}</td>
+                    <td>{{ record['detail_image1'] or 'データなし' }}</td>
+                    <td>{{ record['detail_image2'] or 'データなし' }}</td>
+                    <td>{{ record['detail_image3'] or 'データなし' }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
