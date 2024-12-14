@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'tech0-gen-8-step3-app-py-12'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F778CE32AC5B4DC2826CC212B573110C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1F35172385B945F0931880FF8CB84419 }}
